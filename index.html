@@ -26,7 +26,7 @@
         <div class="hero-content">
             <h1>Mirë Se Vini në Design Studio</h1>
             <p>Krijojmë dizajne të mahnitshëm që bëjnë ndryshim</p>
-            <button class="btn btn-primary">Filloni Tani</button>
+            <a href="#services" class="btn btn-primary">Filloni Tani</a>
         </div>
     </section>
 
@@ -121,12 +121,13 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2>Na Kontaktoni</h2>
-            <form class="contact-form">
+            <form class="contact-form" onsubmit="submitForm(event)">
                 <input type="text" placeholder="Emri Juaj" required>
                 <input type="email" placeholder="Email Juaj" required>
                 <textarea placeholder="Mesazhi" rows="5" required></textarea>
                 <button type="submit" class="btn btn-primary">Dërgo</button>
             </form>
+            <p class="form-message" id="formMessage"></p>
         </div>
     </section>
 
@@ -141,5 +142,18 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const messageEl = document.getElementById('formMessage');
+            messageEl.textContent = '✅ Mesazhi u dërgua me sukses! Faleminderit!';
+            messageEl.style.color = '#43e97b';
+            event.target.reset();
+            setTimeout(() => {
+                messageEl.textContent = '';
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
