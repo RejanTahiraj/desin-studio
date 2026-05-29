@@ -39,19 +39,20 @@
                 Ne ofrojmë zgjidhje dizajni të personalizuara që marrin në konsideratë vizionin e juaj.
             </p>
             <div class="about-grid">
-                <div class="about-card">
+                <div class="about-card" onclick="showAboutDetail('Dizajn Kreatif', 'Oferojmë dizajne unike dhe origjinale për çdo projekt. Ekipi ynë përbëhet nga dizajnerë me përvojë të gjatë në industri.')" style="cursor: pointer;">
                     <h3>🎨 Dizajn Kreatif</h3>
                     <p>Dizajne unike dhe origjinale për çdo projekt</p>
                 </div>
-                <div class="about-card">
+                <div class="about-card" onclick="showAboutDetail('Web Design', 'Krijojmë website-e moderne, responsive dhe të shpejta. Të gjitha website-et e nesh janë optimizuar për të gjitha pajisjet.')" style="cursor: pointer;">
                     <h3>💻 Web Design</h3>
                     <p>Website-e moderne dhe responsive</p>
                 </div>
-                <div class="about-card">
+                <div class="about-card" onclick="showAboutDetail('Mobile Design', 'Aplikacione mobile të dizajnuara me fokus në përdorueshmëri dhe estetikë. Punojmë me iOS dhe Android.')" style="cursor: pointer;">
                     <h3>📱 Mobile Design</h3>
                     <p>Aplikacione mobile të dizajnuara profesionalisht</p>
                 </div>
             </div>
+            <div class="about-info" id="aboutInfo"></div>
         </div>
     </section>
 
@@ -89,7 +90,7 @@
         <div class="container">
             <h2>Shërbime</h2>
             <div class="services-grid">
-                <div class="service-card" onclick="selectService('UX/UI Design', 'Dizajn i përvojës dhe ndërfaqes përdoruesi me fokus në përdorueshmëri maksimale.')" style="cursor: pointer;">
+                <div class="service-card" onclick="selectService('UX/UI Design', 'Dizajn i përvojës dhe ndërfaqes përdoruesi me fokus në përdorueshëri maksimale.')" style="cursor: pointer;">
                     <h3>UX/UI Design</h3>
                     <p>Dizajn i përvojës dhe ndërfaqes përdoruesi</p>
                 </div>
@@ -145,13 +146,24 @@
     </footer>
 
     <script>
+        function showAboutDetail(title, description) {
+            const aboutInfo = document.getElementById('aboutInfo');
+            aboutInfo.innerHTML = `
+                <div class="about-modal">
+                    <h3>${title}</h3>
+                    <p>${description}</p>
+                    <button class="btn btn-primary" onclick="scrollToServices()">Shiko Shërbime</button>
+                </div>
+            `;
+        }
+
         function selectService(title, description) {
             const serviceInfo = document.getElementById('serviceInfo');
             serviceInfo.innerHTML = `
                 <div class="service-modal">
                     <h3>${title}</h3>
                     <p>${description}</p>
-                    <p class="service-price">📞 Kontaktoni për ofertë</p>
+                    <p class="service-price">📞 Kontaktoni për ofertat</p>
                     <button class="btn btn-primary" onclick="scrollToContact()">Pyet Më Shumë</button>
                 </div>
             `;
@@ -159,6 +171,10 @@
 
         function viewProject(id) {
             alert(`Projekt ${id}\nShikimi i më shumë detajeve për projektin ${id}...`);
+        }
+
+        function scrollToServices() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
         }
 
         function scrollToContact() {
