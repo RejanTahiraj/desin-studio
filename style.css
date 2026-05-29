@@ -132,11 +132,12 @@ body {
 }
 
 .btn-primary {
-    background: var(--white);
-    color: var(--primary-color);
+    background: var(--primary-color);
+    color: var(--white);
 }
 
 .btn-primary:hover {
+    background: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
@@ -283,6 +284,7 @@ body {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     border-left-color: var(--secondary-color);
+    background: #f0f5ff;
 }
 
 .service-card h3 {
@@ -293,6 +295,47 @@ body {
 
 .service-card p {
     color: var(--text-light);
+}
+
+.service-info {
+    margin-top: 3rem;
+}
+
+.service-modal {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-left: 5px solid var(--primary-color);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-modal h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.service-modal p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.service-price {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 /* ============================================

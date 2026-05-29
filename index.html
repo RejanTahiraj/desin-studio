@@ -60,22 +60,22 @@
         <div class="container">
             <h2>Portfolio</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="viewProject(1)" style="cursor: pointer;">
                     <div class="portfolio-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
                     <h3>Projekt 1</h3>
                     <p>Dizajni i një website-i korporativ</p>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="viewProject(2)" style="cursor: pointer;">
                     <div class="portfolio-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
                     <h3>Projekt 2</h3>
                     <p>Branding për startup</p>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="viewProject(3)" style="cursor: pointer;">
                     <div class="portfolio-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
                     <h3>Projekt 3</h3>
                     <p>Dizajni i aplikacionit mobile</p>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="viewProject(4)" style="cursor: pointer;">
                     <div class="portfolio-img" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
                     <h3>Projekt 4</h3>
                     <p>Kampanja e-commerce</p>
@@ -89,31 +89,32 @@
         <div class="container">
             <h2>Shërbime</h2>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" onclick="selectService('UX/UI Design', 'Dizajn i përvojës dhe ndërfaqes përdoruesi me fokus në përdorueshmëri maksimale.')" style="cursor: pointer;">
                     <h3>UX/UI Design</h3>
                     <p>Dizajn i përvojës dhe ndërfaqes përdoruesi</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="selectService('Branding', 'Krijimi i identitetit vizual të markës suaj me logo, ngjyra dhe stil unik.')" style="cursor: pointer;">
                     <h3>Branding</h3>
                     <p>Krijimi i identitetit vizual të markës</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="selectService('Web Design', 'Dizajni i website-eve responsiv që punojnë në të gjitha pajisjet.')" style="cursor: pointer;">
                     <h3>Web Design</h3>
                     <p>Dizajni i website-eve responsiv</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="selectService('Grafika', 'Dizajni grafik për marketing, rrjedhje sociale dhe materiale promocionale.')" style="cursor: pointer;">
                     <h3>Grafika</h3>
                     <p>Dizajni grafik për marketing</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="selectService('Animacione', 'Animacione dhe efekte vizuale për të bërë website-in tuaj më interaktiv.')" style="cursor: pointer;">
                     <h3>Animacione</h3>
                     <p>Animacione dhe efekte vizuale</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="selectService('Konsultim', 'Konsultim në strategji të dizajnit për të arritur qëllimet e biznesit.')" style="cursor: pointer;">
                     <h3>Konsultim</h3>
                     <p>Konsultim në strategji të dizajnit</p>
                 </div>
             </div>
+            <div class="service-info" id="serviceInfo"></div>
         </div>
     </section>
 
@@ -144,6 +145,26 @@
     </footer>
 
     <script>
+        function selectService(title, description) {
+            const serviceInfo = document.getElementById('serviceInfo');
+            serviceInfo.innerHTML = `
+                <div class="service-modal">
+                    <h3>${title}</h3>
+                    <p>${description}</p>
+                    <p class="service-price">📞 Kontaktoni për ofertë</p>
+                    <button class="btn btn-primary" onclick="scrollToContact()">Pyet Më Shumë</button>
+                </div>
+            `;
+        }
+
+        function viewProject(id) {
+            alert(`Projekt ${id}\nShikimi i më shumë detajeve për projektin ${id}...`);
+        }
+
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
         function submitForm(event) {
             event.preventDefault();
             const messageEl = document.getElementById('formMessage');
