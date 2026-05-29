@@ -39,15 +39,15 @@
                 Ne ofrojmë zgjidhje dizajni të personalizuara që marrin në konsideratë vizionin e juaj.
             </p>
             <div class="about-grid">
-                <div class="about-card" onclick="showAboutDetail('Dizajn Kreatif', 'Oferojmë dizajne unike dhe origjinale për çdo projekt. Ekipi ynë përbëhet nga dizajnerë me përvojë të gjatë në industri.')" style="cursor: pointer;">
+                <div class="about-card" id="card1">
                     <h3>🎨 Dizajn Kreatif</h3>
                     <p>Dizajne unike dhe origjinale për çdo projekt</p>
                 </div>
-                <div class="about-card" onclick="showAboutDetail('Web Design', 'Krijojmë website-e moderne, responsive dhe të shpejta. Të gjitha website-et e nesh janë optimizuar për të gjitha pajisjet.')" style="cursor: pointer;">
+                <div class="about-card" id="card2">
                     <h3>💻 Web Design</h3>
                     <p>Website-e moderne dhe responsive</p>
                 </div>
-                <div class="about-card" onclick="showAboutDetail('Mobile Design', 'Aplikacione mobile të dizajnuara me fokus në përdorueshmëri dhe estetikë. Punojmë me iOS dhe Android.')" style="cursor: pointer;">
+                <div class="about-card" id="card3">
                     <h3>📱 Mobile Design</h3>
                     <p>Aplikacione mobile të dizajnuara profesionalisht</p>
                 </div>
@@ -61,22 +61,22 @@
         <div class="container">
             <h2>Portfolio</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="viewProject(1)" style="cursor: pointer;">
+                <div class="portfolio-item" id="proj1">
                     <div class="portfolio-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
                     <h3>Projekt 1</h3>
                     <p>Dizajni i një website-i korporativ</p>
                 </div>
-                <div class="portfolio-item" onclick="viewProject(2)" style="cursor: pointer;">
+                <div class="portfolio-item" id="proj2">
                     <div class="portfolio-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
                     <h3>Projekt 2</h3>
                     <p>Branding për startup</p>
                 </div>
-                <div class="portfolio-item" onclick="viewProject(3)" style="cursor: pointer;">
+                <div class="portfolio-item" id="proj3">
                     <div class="portfolio-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
                     <h3>Projekt 3</h3>
                     <p>Dizajni i aplikacionit mobile</p>
                 </div>
-                <div class="portfolio-item" onclick="viewProject(4)" style="cursor: pointer;">
+                <div class="portfolio-item" id="proj4">
                     <div class="portfolio-img" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
                     <h3>Projekt 4</h3>
                     <p>Kampanja e-commerce</p>
@@ -90,27 +90,27 @@
         <div class="container">
             <h2>Shërbime</h2>
             <div class="services-grid">
-                <div class="service-card" onclick="selectService('UX/UI Design', 'Dizajn i përvojës dhe ndërfaqes përdoruesi me fokus në përdorueshëri maksimale.')" style="cursor: pointer;">
+                <div class="service-card" id="serv1">
                     <h3>UX/UI Design</h3>
                     <p>Dizajn i përvojës dhe ndërfaqes përdoruesi</p>
                 </div>
-                <div class="service-card" onclick="selectService('Branding', 'Krijimi i identitetit vizual të markës suaj me logo, ngjyra dhe stil unik.')" style="cursor: pointer;">
+                <div class="service-card" id="serv2">
                     <h3>Branding</h3>
                     <p>Krijimi i identitetit vizual të markës</p>
                 </div>
-                <div class="service-card" onclick="selectService('Web Design', 'Dizajni i website-eve responsiv që punojnë në të gjitha pajisjet.')" style="cursor: pointer;">
+                <div class="service-card" id="serv3">
                     <h3>Web Design</h3>
                     <p>Dizajni i website-eve responsiv</p>
                 </div>
-                <div class="service-card" onclick="selectService('Grafika', 'Dizajni grafik për marketing, rrjedhje sociale dhe materiale promocionale.')" style="cursor: pointer;">
+                <div class="service-card" id="serv4">
                     <h3>Grafika</h3>
                     <p>Dizajni grafik për marketing</p>
                 </div>
-                <div class="service-card" onclick="selectService('Animacione', 'Animacione dhe efekte vizuale për të bërë website-in tuaj më interaktiv.')" style="cursor: pointer;">
+                <div class="service-card" id="serv5">
                     <h3>Animacione</h3>
                     <p>Animacione dhe efekte vizuale</p>
                 </div>
-                <div class="service-card" onclick="selectService('Konsultim', 'Konsultim në strategji të dizajnit për të arritur qëllimet e biznesit.')" style="cursor: pointer;">
+                <div class="service-card" id="serv6">
                     <h3>Konsultim</h3>
                     <p>Konsultim në strategji të dizajnit</p>
                 </div>
@@ -123,7 +123,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2>Na Kontaktoni</h2>
-            <form class="contact-form" onsubmit="submitForm(event)">
+            <form class="contact-form" id="contactForm">
                 <input type="text" placeholder="Emri Juaj" required>
                 <input type="email" placeholder="Email Juaj" required>
                 <textarea placeholder="Mesazhi" rows="5" required></textarea>
@@ -146,13 +146,69 @@
     </footer>
 
     <script>
+        // About Cards
+        document.getElementById('card1').addEventListener('click', function() {
+            showAboutDetail('🎨 Dizajn Kreatif', 'Ofrojmë dizajne unike dhe origjinale për çdo projekt. Ekipi ynë përbëhet nga dizajnerë me përvojë të gjatë në industri.');
+        });
+
+        document.getElementById('card2').addEventListener('click', function() {
+            showAboutDetail('💻 Web Design', 'Krijojmë website-e moderne, responsive dhe të shpejta. Të gjitha website-et e nesh janë optimizuar për të gjitha pajisjet.');
+        });
+
+        document.getElementById('card3').addEventListener('click', function() {
+            showAboutDetail('📱 Mobile Design', 'Aplikacione mobile të dizajnuara me fokus në përdorueshmëri dhe estetikë. Punojmë me iOS dhe Android.');
+        });
+
+        // Service Cards
+        document.getElementById('serv1').addEventListener('click', function() {
+            selectService('UX/UI Design', 'Dizajn i përvojës dhe ndërfaqes përdoruesi me fokus në përdorueshmëri maksimale.');
+        });
+
+        document.getElementById('serv2').addEventListener('click', function() {
+            selectService('Branding', 'Krijimi i identitetit vizual të markës suaj me logo, ngjyra dhe stil unik.');
+        });
+
+        document.getElementById('serv3').addEventListener('click', function() {
+            selectService('Web Design', 'Dizajni i website-eve responsiv që punojnë në të gjitha pajisjet.');
+        });
+
+        document.getElementById('serv4').addEventListener('click', function() {
+            selectService('Grafika', 'Dizajni grafik për marketing, rrjedhje sociale dhe materiale promocionale.');
+        });
+
+        document.getElementById('serv5').addEventListener('click', function() {
+            selectService('Animacione', 'Animacione dhe efekte vizuale për të bërë website-in tuaj më interaktiv.');
+        });
+
+        document.getElementById('serv6').addEventListener('click', function() {
+            selectService('Konsultim', 'Konsultim në strategji të dizajnit për të arritur qëllimet e biznesit.');
+        });
+
+        // Portfolio Items
+        document.getElementById('proj1').addEventListener('click', function() {
+            alert('Projekt 1: Website Korporativ\nShikimi i më shumë detajeve për projektin...');
+        });
+
+        document.getElementById('proj2').addEventListener('click', function() {
+            alert('Projekt 2: Branding për Startup\nShikimi i më shumë detajeve për projektin...');
+        });
+
+        document.getElementById('proj3').addEventListener('click', function() {
+            alert('Projekt 3: Aplikacion Mobile\nShikimi i më shumë detajeve për projektin...');
+        });
+
+        document.getElementById('proj4').addEventListener('click', function() {
+            alert('Projekt 4: Kampanja E-commerce\nShikimi i më shumë detajeve për projektin...');
+        });
+
+        // Functions
         function showAboutDetail(title, description) {
             const aboutInfo = document.getElementById('aboutInfo');
             aboutInfo.innerHTML = `
                 <div class="about-modal">
                     <h3>${title}</h3>
                     <p>${description}</p>
-                    <button class="btn btn-primary" onclick="scrollToServices()">Shiko Shërbime</button>
+                    <button class="btn btn-primary" onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })">Shiko Shërbime</button>
                 </div>
             `;
         }
@@ -164,33 +220,22 @@
                     <h3>${title}</h3>
                     <p>${description}</p>
                     <p class="service-price">📞 Kontaktoni për ofertat</p>
-                    <button class="btn btn-primary" onclick="scrollToContact()">Pyet Më Shumë</button>
+                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Pyet Më Shumë</button>
                 </div>
             `;
         }
 
-        function viewProject(id) {
-            alert(`Projekt ${id}\nShikimi i më shumë detajeve për projektin ${id}...`);
-        }
-
-        function scrollToServices() {
-            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function scrollToContact() {
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function submitForm(event) {
-            event.preventDefault();
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             const messageEl = document.getElementById('formMessage');
             messageEl.textContent = '✅ Mesazhi u dërgua me sukses! Faleminderit!';
             messageEl.style.color = '#43e97b';
-            event.target.reset();
+            this.reset();
             setTimeout(() => {
                 messageEl.textContent = '';
             }, 3000);
-        }
+        });
     </script>
 </body>
 </html>
