@@ -120,6 +120,7 @@ body {
    BUTTONS
    ============================================ */
 .btn {
+    display: inline-block;
     padding: 12px 30px;
     border: none;
     border-radius: 5px;
@@ -127,6 +128,7 @@ body {
     cursor: pointer;
     transition: var(--transition);
     font-weight: 600;
+    text-decoration: none;
 }
 
 .btn-primary {
@@ -334,6 +336,12 @@ body {
 
 .contact-form button {
     align-self: center;
+}
+
+.form-message {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
 }
 
 /* ============================================
